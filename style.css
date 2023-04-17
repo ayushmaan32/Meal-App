@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.navbar {
+  background-color: rgb(240, 240, 22);
+}
+
+.container-fluid > img {
+  width: 43x;
+  height: 43px;
+  margin-right: 15px;
+}
