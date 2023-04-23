@@ -47,7 +47,11 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="favourites" href="./favourites.html"
+              <a
+                class="nav-link"
+                id="favourites"
+                href="./favourites.html"
+                onclick="showFavMealList()"
                 >Favourites</a
               >
             </li>
@@ -69,16 +73,11 @@
       </div>
     </nav>
 
-    <!-- main content of meal app -->
-    <!-- <main id="main"> -->
-    <!-- Search bar  -->
-    <!-- <div class="search-bar">
-      <input type="text" id="search" name="search" placeholder="Search" />
-      <button type="submit" id="search-btn">
-        <i class="fas fa-search search-ico"></i>
-      </button>
-    </div> -->
+    <div id="page-heading">
+      <h2>Find Recipes For You</h2>
+    </div>
 
+    <!-- input  -->
     <div class="input-group mt-5 d-flex justify-content-center">
       <div class="form-outline">
         <input type="text" id="search" class="form-control" />
@@ -93,7 +92,6 @@
       id="mealList"
       class="d-flex justify-content-around container flex-wrap mt-5 m-auto row"
     ></div>
-    <!-- </main> -->
 
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"

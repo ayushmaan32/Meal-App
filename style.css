@@ -7,57 +7,18 @@
   background-color: #85ffbd;
   background-image: linear-gradient(215deg, #85ffbd 0%, #fffb7d 100%);
 }
-/* #main {
-  height: 90vh;
-  clip-path: polygon(0% 65.76%, 50% 99%, 100% 57.51%, 100% 0%, 0% 0%);
-  background: url(assets/background.png);
-} */
+
+#page-heading {
+  text-align: center;
+  font-weight: 700;
+  font-size: 4rem;
+  margin-top: 1rem;
+  color: darkslategray;
+}
+
 #search:focus {
   outline: none;
 }
-
-/* 
-.search-bar {
-  position: absolute;
-  top: 20vh;
-  left: 35%;
-  width: 25%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.search-bar input {
-  background-color: beige;
-  width: 100%;
-  font-size: 16px;
-  text-decoration: none;
-  border-radius: 18px;
-  border: none;
-  padding: 5px;
-  font-weight: 500;
-  text-align: center;
-  transition: all ease-in-out 0.1s;
-  display: inline-block;
-}*/
-
-/* search icon for input bar */
-
-/* 
-.search-ico {
-  color: rgba(0, 0, 0, 0.5);
-}
-input:focus {
-  outline: none;
-}
-#search-btn {
-  margin-left: -25px;
-  cursor: pointer;
-  transition: all ease-in-out 0.1s;
-  border: none;
-  outline: none;
-  background: none;
-}  */
 
 .container-fluid > img {
   width: 43x;

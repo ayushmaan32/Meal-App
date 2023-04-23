@@ -49,13 +49,13 @@ let displayMealList = (meals) => {
         }
         if (isFav) {
           html += `
-            <div id="card" class="card mb-3 shadow bg-body-tertiary rounded" style="width: 16rem;">
+            <div id="card" class="card mb-3 shadow bg-body-tertiary rounded" style="width: 20rem;">
                 <img src="${item.strMealThumb}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title ">${item.strMeal}</h5>
                     <div class="d-flex justify-content-between mt-5">
                         <button type="button" class="btn btn-warning" onclick="showMealDetails(${item.idMeal})">Recipe</button>
-                        <button id="main${item.idMeal}" class="btn btn-outline-light " onclick="addRemoveToFavList(${item.idMeal})" style="border-radius:50%"><i class="fa-solid fa-heart"></i></button>
+                        <button id="main${item.idMeal}" class="btn btn-outline-light " onclick="RemoveToFavList(${item.idMeal})" style="border-radius:50%"><i class="fa-solid fa-heart"></i></button>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@ let displayMealList = (meals) => {
                     <h5 class="card-title">${item.strMeal}</h5>
                     <div class="d-flex justify-content-between mt-5">
                         <button type="button" class="btn btn-warning" onclick="showMealDetails(${item.idMeal})">Recipe</button>
-                        <button id="main${item.idMeal}" class="btn btn-outline-danger"   onclick="addRemoveToFavList(${item.idMeal})" ><i class="fa-regular fa-bookmark fa-lg" style="color: #221f51;"></i></button>
+                        <button id="main${item.idMeal}" class="btn btn-outline-danger"   onclick="addToFavList(${item.idMeal})" ><i class="fa-regular fa-bookmark fa-lg" style="color: #221f51;"></i></button>
                     </div>
                 </div>
             </div>
@@ -151,4 +151,51 @@ async function showMealDetails(id) {
   }
 
   mealList.innerHTML = html;
+}
+
+// function to show favourite meal list
+
+async function showFavMealList() {
+  let html = "";
+  let localArray = JSON.parse(storage.getItem("favouritesList"));
+  if (localArray.length > 0) {
+    for (let i = 0; i < localArray.length; i++) {
+      const response = await fetch(
+        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${arr[i]}`
+      );
+      const data = await response.json();
+
+      if (data) {
+        html += `
+         <div id="card" class="card mb-3 shadow bg-body-tertiary rounded" style="width: 20rem;">
+         <img src="${item.strMealThumb}" class="card-img-top" alt="...">
+         <div class="card-body">
+             <h5 class="card-title ">${item.strMeal}</h5>
+             <div class="d-flex justify-content-between mt-5">
+                 <button type="button" class="btn btn-warning" onclick="showMealDetails(${item.idMeal})">Recipe</button>
+                 <button id="main${item.idMeal}" class="btn btn-outline-light " onclick="RemoveToFavList(${item.idMeal})" style="border-radius:50%"><i class="fa-solid fa-heart"></i></button>
+             </div>
+         </div>
+     </div>
+        `;
+
+        mealList.innerHTML = html;
+      }
+    }
+  } else {
+    html += ` 
+   <div class="page-wrap d-flex flex-row align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center" ">
+                <div class="mb-4 lead black">
+                    No Favourite meals
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>`;
+
+    mealList.innerHTML = html;
+  }
 }
