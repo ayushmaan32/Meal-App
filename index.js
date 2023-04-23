@@ -112,6 +112,8 @@ let fetchMealApiResults = async (searchValue) => {
     console.error(err);
   }
 };
+
+// function to show Meal details
 async function showMealDetails(id) {
   let html = "";
   const response = await fetch(
