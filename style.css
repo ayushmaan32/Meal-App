@@ -3,11 +3,13 @@
   padding: 0;
 }
 
+/* Navbar */
 .navbar {
   background-color: #85ffbd;
   background-image: linear-gradient(215deg, #85ffbd 0%, #fffb7d 100%);
 }
 
+/* heading */
 #page-heading {
   text-align: center;
   font-weight: 700;
@@ -16,24 +18,18 @@
   color: darkslategray;
 }
 
-#search:focus {
-  outline: none;
-}
-
 .container-fluid > img {
   width: 43x;
   height: 43px;
   margin-right: 15px;
 }
 
-#mealList {
-  margin: auto;
-}
-
+/* card background color */
 .card {
   background-color: #c9dbd2;
-  /* color: black; */
 }
+
+/* meal details */
 #heading {
   color: rgb(120, 91, 167);
   font-weight: 700;

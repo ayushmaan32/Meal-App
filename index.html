@@ -56,23 +56,11 @@
               >
             </li>
           </ul>
-
-          <ul class="navbar-nav ml-auto mb-2 me-2 mb-lg-0">
-            <li>
-              <button type="button" class="btn btn-outline-primary me-2">
-                Sign in
-              </button>
-            </li>
-            <li>
-              <button type="button" class="btn btn-outline-primary">
-                Register
-              </button>
-            </li>
-          </ul>
         </div>
       </div>
     </nav>
 
+    <!-- heading -->
     <div id="page-heading">
       <h2>Find Recipes For You</h2>
     </div>
@@ -87,7 +75,12 @@
           onkeyup="displayMealList()"
         />
       </div>
-      <button type="button" class="btn btn-primary" id="search-btn">
+      <button
+        type="button"
+        class="btn btn-primary"
+        id="search-btn"
+        onclick="displayMealList()"
+      >
         <i class="fas fa-search"></i>
       </button>
     </div>

@@ -14,7 +14,7 @@ if (storage.getItem("favouritesList") == null) {
   storage.setItem("favouritesList", JSON.stringify([]));
 }
 
-//displaying results on the basis of searchresults from an API Call and adding it to the DOM
+//display Meal List fecting from api when user input in search box
 async function displayMealList() {
   let html = "";
   const value = searchBar.value.trim();
@@ -28,9 +28,6 @@ async function displayMealList() {
 
     data = await response.json();
     console.log(data);
-    // if (value.length < 2) {
-    //   data.meals = 1;
-    // }
   } catch (err) {
     console.error(err);
   }
@@ -129,7 +126,6 @@ async function displayMealDetails(id) {
 
 // function to show favourite meal list
 async function showFavMealList() {
-  console.log("hello");
   let html = "";
   let localArray = JSON.parse(storage.getItem("favouritesList"));
   console.log(localArray);
@@ -148,7 +144,7 @@ async function showFavMealList() {
              <h5 class="card-title ">${data.meals[0].strMeal}</h5>
              <div class="d-flex justify-content-between mt-5">
                  <button type="button" class="btn btn-warning" onclick="displayFavMealDetails(${data.meals[0].idMeal})">Recipe</button>
-                 <button id="main${data.meals[0].idMeal}" class="btn btn-outline-light " onclick="addRemoveToFavList(${data.meals[0].idMeal})" style="border-radius:50%"><i class="fa-solid fa-heart"></i></button>
+                 <button id="main${data.meals[0].idMeal}" class="btn btn-outline-light active " onclick="addRemoveToFavList(${data.meals[0].idMeal})" style="border-radius:50%"><i class="fa-solid fa-heart"></i></button>
              </div>
          </div>
      </div>
