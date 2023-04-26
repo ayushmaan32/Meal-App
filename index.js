@@ -52,7 +52,7 @@ async function displayMealList() {
                   <div class="card-body">
                       <h5 class="card-title ">${items.strMeal}</h5>
                       <div class="d-flex justify-content-between mt-5">
-                          <button type="button" class="btn btn-warning" onclick="showMealDetails(${items.idMeal})">Recipe</button>
+                          <button type="button" class="btn btn-warning" onclick="displayMealDetails(${items.idMeal})">Recipe</button>
                           <button id="main${items.idMeal}" class="btn btn-outline-light active" onclick="addRemoveToFavList(${items.idMeal})" style="border-radius:50%"><i class="fa-solid fa-heart"></i></button>
                       </div>
                   </div>
@@ -123,7 +123,6 @@ async function displayMealDetails(id) {
     </div>
 </div>`;
   }
-  console.log(html);
 
   mealList.innerHTML = html;
 }
@@ -174,6 +173,42 @@ async function showFavMealList() {
 
     favMealList.innerHTML = html;
   }
+}
+
+// function to show favourite meal details
+async function displayFavMealDetails(id) {
+  console.log(id);
+  let html = "";
+  const response = await fetch(
+    `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
+  );
+  const data = await response.json();
+  console.log(data);
+
+  if (data) {
+    html += ` <div class="container py-3">
+    <div class="card  p-lg-5 p-md-2">
+        <div class="row ">
+            <div class="col-md-4  align-self-center" id= "photo">
+                <img src="${data.meals[0].strMealThumb}" class="w-100 ">
+            </div>
+            <div class="col-md-8 px-3 align-self-center">
+                <div class="card-block px-3">
+                    <h2 class="card-title" id="heading">${data.meals[0].strMeal}</h2>
+                    <p id="category">Category : ${data.meals[0].strCategory}</p>
+                    <p d="area">Area : ${data.meals[0].strArea}</p>
+                    <h5>Instruction :</h5>
+                    <p class="card-text" id="instructions">
+                        ${data.meals[0].strInstructions}</p>
+                    <a href="${data.meals[0].strYoutube}"  target="_blank" class="btn btn-warning">Video</a> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>`;
+  }
+
+  favMealList.innerHTML = html;
 }
 
 // function to add and remove favourite items
