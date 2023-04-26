@@ -80,7 +80,12 @@
     <!-- input  -->
     <div class="input-group mt-5 d-flex justify-content-center">
       <div class="form-outline">
-        <input type="text" id="search" class="form-control" />
+        <input
+          type="text"
+          id="search"
+          class="form-control"
+          onkeyup="displayMealList()"
+        />
       </div>
       <button type="button" class="btn btn-primary" id="search-btn">
         <i class="fas fa-search"></i>
